@@ -1,0 +1,357 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Price Check | @jastipjapanis</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: #FFF5F7;
+      font-family: "DM Sans", sans-serif;
+      color: #292929;
+    }
+
+    .converter {
+      width: 100%;
+      max-width: 400px;
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px #00000010;
+    }
+
+    .brand {
+      color: #D47A9B;
+      text-align: center;
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-size: 30px;
+      text-align: center;
+      margin: 0 0 8px;
+    }
+
+    .subtitle {
+      color: #6e1111;
+      font-size: 16px;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    label {
+        COLOR: #000000;
+      display: block;
+      font-size: 16px;
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    input {
+      width: 100%;
+      text-align: center;
+      padding: 16px;
+      font-size: 22px;
+      border: 1px solid #F0C8D7;
+      border-radius: 12px;
+      outline: none;
+      background: white;
+    }
+
+    input:focus {
+      border-color: #D47A9B;
+    }
+
+    .arrow {
+      text-align: center;
+      font-size: 20px;
+      margin: 14px 0;
+      color: #D47A9B;
+    }
+
+    .output {
+      background: #FFF0F5;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .output small {
+      color: #000000;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .result {
+      font-size: 30px;
+      font-weight: bold;
+      color: #D47A9B;
+      margin-top: 12px;
+      overflow-wrap: anywhere;
+    }
+
+    .rate {
+      margin-top: 25px;
+      text-align: center;
+      color: #999;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .footer {
+      margin-top: 25px;
+      padding-top: 18px;
+      border-top: 1px solid #eee;
+      text-align: center;
+      color: #D47A9B;
+      font-size: 16px;
+      font-weight: bold;
+    }
+   
+  h1 {
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+}
+.currency-direction {
+  font-family: 'DM Sans', sans-serif;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #D47A9B;
+  margin-top: -2px;
+  margin-bottom: 12px;
+}
+
+.currency-direction span {
+  margin: 0 8px;
+  color: #E8AFC3;
+}
+.sakura-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.sakura-container span {
+  position: absolute;
+  top: -10%;
+  font-size: 18px;
+  opacity: 0.35;
+  animation: sakura-fall linear infinite;
+}
+
+.sakura-container span:nth-child(1) {
+  left: 10%;
+  animation-duration: 9s;
+}
+
+.sakura-container span:nth-child(2) {
+  left: 25%;
+  animation-duration: 12s;
+  animation-delay: 2s;
+}
+
+.sakura-container span:nth-child(3) {
+  left: 40%;
+  animation-duration: 10s;
+  animation-delay: 4s;
+}
+
+.sakura-container span:nth-child(4) {
+  left: 55%;
+  animation-duration: 13s;
+  animation-delay: 1s;
+}
+
+.sakura-container span:nth-child(5) {
+  left: 70%;
+  animation-duration: 11s;
+  animation-delay: 3s;
+}
+
+.sakura-container span:nth-child(6) {
+  left: 85%;
+  animation-duration: 14s;
+  animation-delay: 5s;
+}
+
+.sakura-container span:nth-child(7) {
+  left: 95%;
+  animation-duration: 10s;
+  animation-delay: 6s;
+}
+
+.sakura-container span:nth-child(8) {
+  left: 5%;
+  animation-duration: 15s;
+  animation-delay: 7s;
+}
+
+@keyframes sakura-fall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+  }
+}
+/* Remove number input arrows */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+  </style>
+</head>
+
+<body>
+<div class="sakura-container">
+  <span>🌸</span>
+  <span>🌸</span>
+  <span>🌸</span>
+  <span>🌸</span>
+  <span>🌸</span>
+  <span>🌸</span>
+  <span>🌸</span>
+  <span>🌸</span>
+</div>
+  <div class="converter">
+
+    <div class="brand">
+      @jastipjapanis
+    </div>
+
+    <h1>💴 Price Check</h1>
+    <p class="currency-direction">🇯🇵 JPY <span>→</span> 🇮🇩 IDR</p>
+
+    <p class="subtitle">
+      Check your Japan finds! ♡
+      <br>
+      Enter the price in Yen and see the estimated price in Rupiah.
+    </p>
+
+    <label for="yen">
+      Enter Price (JPY ¥)
+    </label>
+
+    <input
+      type="number"
+      id="yen"
+      placeholder="0"
+      min="0"
+      step="any"
+      inputmode="decimal"
+    >
+
+    <div class="arrow">
+      ↓
+    </div>
+
+    <div class="output">
+
+      <small>Estimated Price (IDR)</small>
+
+      <div class="result" id="idr">
+        0
+      </div>
+
+    </div>
+
+    <div class="rate">
+      Current Exchange rate: ¥1 = Rp118
+      <br>
+      Service fee: ¥200
+      <br>
+      Rounded up to the next Rp1.000
+    </div>
+
+    <div class="footer">
+      Price Check by @jastipjapanis ♡
+    </div>
+
+  </div>
+
+  <script>
+
+    // =================================
+    // YOUR BUSINESS EXCHANGE RATE
+    // Change this number whenever needed
+    // =================================
+
+    const EXCHANGE_RATE = 118;
+    const SERVICE_FEE = 200;
+
+    // Rounding to the next Rp1,000
+    const ROUNDING = 1000;
+
+
+    // Get HTML elements
+    const yenInput = document.getElementById("yen");
+    const idrOutput = document.getElementById("idr");
+    yenInput.addEventListener("wheel", function(event) {
+  event.preventDefault();
+}, { passive: false });
+
+
+    // Calculate automatically
+    yenInput.addEventListener("input", function() {
+
+      const yen = Number(this.value);
+
+      // Empty or invalid input
+      if (
+        this.value === "" ||
+        !Number.isFinite(yen) ||
+        yen <= 0
+      ) {
+        idrOutput.textContent = "0";
+        return;
+      }
+
+      // Convert JPY to IDR
+    const totalYen = yen + SERVICE_FEE;
+    const converted = totalYen * EXCHANGE_RATE;
+      // Round up to next Rp1,000
+      const rounded =
+        Math.ceil(converted / ROUNDING) * ROUNDING;
+
+      // Display Indonesian Rupiah
+      idrOutput.textContent = rounded.toLocaleString("id-ID");
+
+    });
+
+  </script>
+
+</body>
+</html>
